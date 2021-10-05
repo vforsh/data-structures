@@ -1,5 +1,6 @@
-import { Bst, BtNode, isBinarySearchTree } from "./binary-search-tree/BST"
+import { Bst, isBinarySearchTree } from "./binary-trees/binary-search-tree/BST"
 import assert from "assert"
+import { BtNode } from "./binary-trees/common"
 
 function testBinarySearchTree() {
 	console.log("Testing BST")

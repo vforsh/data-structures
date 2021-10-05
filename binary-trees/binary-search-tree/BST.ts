@@ -1,16 +1,7 @@
+import { BtNode, TraverseCallback } from "../common"
+
 export type TraverseMethod = "breadth-first" | DepthFirst
 export type DepthFirst = "pre-order" | "in-order-asc" | "in-order-desc" | "post-order"
-
-export type TraverseCallback<T> = (value: T) => unknown
-
-export class BtNode<T> {
-	constructor(public value: T, public left?: BtNode<T>, public right?: BtNode<T>) {
-	}
-	
-	isLeaf(): boolean {
-		return !this.left && !this.right
-	}
-}
 
 export class Bst<T = number> {
 	

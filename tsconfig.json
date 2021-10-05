@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"sourceMap": false,
+		"noEmit": true,
+		"module": "ES6",
+		"moduleResolution": "Node",
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"watch": true,
+		"lib": [
+			"DOM",
+			"ESNext"
+		],
+		"skipLibCheck": true,
+		"incremental": true,
+		"pretty": false,
+	},
+	"exclude": [
+		"**/node_modules",
+		"**/.*/"
+	],
+	"include": [
+		"**/*.ts"
+	]
+}

@@ -1,0 +1,33 @@
+{
+	"name": "data-structures",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"typecheck": "tsc",
+		"run": "node -r esbuild-register index.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/vforsh/data-structures.git"
+	},
+	"keywords": [
+		"algorithms",
+		"data",
+		"structures",
+		"computer",
+		"science"
+	],
+	"author": "Vladislav Forsh",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/vforsh/data-structures/issues"
+	},
+	"homepage": "https://github.com/vforsh/data-structures#readme",
+	"dependencies": {
+		"@types/node": "^16.10.2",
+		"esbuild": "^0.13.3",
+		"esbuild-register": "^3.0.0",
+		"typescript": "^4.4.3"
+	}
+}

@@ -133,4 +133,44 @@ export class Trie {
 		return nodes
 	}
 	
+	autocomplete(prefix: string): string[] {
+		if (prefix === "") {
+			return []
+		}
+		
+		let lastNode = this.findLastNode(prefix)
+		if (!lastNode) {
+			return []
+		}
+		
+		const _autocomplete = (node: TrieNode, prefix: string, words: string[] = []): string[] => {
+			if (node.isEndOfWord) {
+				words.push(prefix)
+			}
+			
+			node.getChildren().forEach(child => _autocomplete(child, prefix + child.value, words))
+			
+			return words
+		}
+		
+		return _autocomplete(lastNode, prefix)
+	}
+	
+	
+	private findLastNode(word: string): TrieNode | undefined {
+		let current = this.root
+		
+		for (let i = 0; i < word.length; i++) {
+			let char = word[i]
+			
+			if (current.hasChild(char) === false) {
+				return
+			}
+			
+			current = current.getChild(char)
+		}
+		
+		return current
+	}
+	
 }

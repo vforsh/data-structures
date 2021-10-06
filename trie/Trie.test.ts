@@ -93,4 +93,24 @@ describe("Trie", () => {
 		expect(trie.contains("dog")).toBe(true)
 		expect(trie.contains("dogs")).toBe(true)
 	})
+	
+	test("autocomplete", () => {
+		let trie = new Trie()
+		trie.insert("car")
+		trie.insert("care")
+		trie.insert("card")
+		trie.insert("careful")
+		trie.insert("egg")
+		trie.insert("eggs")
+		
+		expect(trie.autocomplete("")).toEqual([])
+		
+		expect(trie.autocomplete("e")).toEqual(["egg", "eggs"])
+		expect(trie.autocomplete("eggs")).toEqual(["eggs"])
+		expect(trie.autocomplete("eggss")).toEqual([])
+		
+		expect(trie.autocomplete("ca")).toEqual(["car", "care", "careful", "card"])
+		expect(trie.autocomplete("care")).toEqual(["care", "careful"])
+		expect(trie.autocomplete("cart")).toEqual([])
+	})
 })

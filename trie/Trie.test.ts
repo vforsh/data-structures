@@ -54,4 +54,43 @@ describe("Trie", () => {
 		expect(trie.contains("care")).toBe(false)
 		expect(trie.contains("caret")).toBe(true)
 	})
+
+	test("removeRecursive", () => {
+		let trie = new Trie()
+
+		trie.insert("car")
+		trie.insert("care")
+		trie.insert("caret")
+
+		trie.removeRecursive("")
+		trie.removeRecursive("dog")
+
+		expect(trie.contains("car")).toBe(true)
+
+		trie.removeRecursive("car")
+		expect(trie.contains("car")).toBe(false)
+		expect(trie.contains("care")).toBe(true)
+		expect(trie.contains("caret")).toBe(true)
+
+		trie.removeRecursive("care")
+		expect(trie.contains("car")).toBe(false)
+		expect(trie.contains("care")).toBe(false)
+		expect(trie.contains("caret")).toBe(true)
+
+		trie.insert("dog")
+		trie.insert("dogster")
+		trie.insert("dogs")
+		expect(trie.contains("dog")).toBe(true)
+		expect(trie.contains("dogster")).toBe(true)
+		expect(trie.contains("dogs")).toBe(true)
+
+		trie.removeRecursive("dogster")
+		expect(trie.contains("dogster")).toBe(false)
+		expect(trie.contains("dog")).toBe(true)
+		expect(trie.contains("dogs")).toBe(true)
+
+		trie.removeRecursive("do")
+		expect(trie.contains("dog")).toBe(true)
+		expect(trie.contains("dogs")).toBe(true)
+	})
 })

@@ -54,58 +54,34 @@ describe("Trie", () => {
 		trie.insert("care")
 		trie.insert("caret")
 		
-		expect(trie.remove("")).toBe(false)
-		
-		expect(trie.remove("dog")).toBe(false)
+		trie.remove("")
+		trie.remove("dog")
 		
 		expect(trie.contains("car")).toBe(true)
 		
-		expect(trie.remove("car")).toBe(true)
+		trie.remove("car")
 		expect(trie.contains("car")).toBe(false)
 		expect(trie.contains("care")).toBe(true)
 		expect(trie.contains("caret")).toBe(true)
 		
-		expect(trie.remove("care")).toBe(true)
+		trie.remove("care")
 		expect(trie.contains("car")).toBe(false)
 		expect(trie.contains("care")).toBe(false)
 		expect(trie.contains("caret")).toBe(true)
-	})
-
-	test("removeRecursive", () => {
-		let trie = new Trie()
-
-		trie.insert("car")
-		trie.insert("care")
-		trie.insert("caret")
-
-		trie.removeRecursive("")
-		trie.removeRecursive("dog")
-
-		expect(trie.contains("car")).toBe(true)
-
-		trie.removeRecursive("car")
-		expect(trie.contains("car")).toBe(false)
-		expect(trie.contains("care")).toBe(true)
-		expect(trie.contains("caret")).toBe(true)
-
-		trie.removeRecursive("care")
-		expect(trie.contains("car")).toBe(false)
-		expect(trie.contains("care")).toBe(false)
-		expect(trie.contains("caret")).toBe(true)
-
+		
 		trie.insert("dog")
 		trie.insert("dogster")
 		trie.insert("dogs")
 		expect(trie.contains("dog")).toBe(true)
 		expect(trie.contains("dogster")).toBe(true)
 		expect(trie.contains("dogs")).toBe(true)
-
-		trie.removeRecursive("dogster")
+		
+		trie.remove("dogster")
 		expect(trie.contains("dogster")).toBe(false)
 		expect(trie.contains("dog")).toBe(true)
 		expect(trie.contains("dogs")).toBe(true)
-
-		trie.removeRecursive("do")
+		
+		trie.remove("do")
 		expect(trie.contains("dog")).toBe(true)
 		expect(trie.contains("dogs")).toBe(true)
 	})

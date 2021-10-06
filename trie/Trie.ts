@@ -85,7 +85,7 @@ export class Trie {
 		}
 	}
 	
-	removeRecursive(word: string) {
+	remove(word: string) {
 		const _remove = (node: TrieNode, word: string, index: number = 0) => {
 			if (index === word.length) {
 				node.isEndOfWord = false
@@ -110,27 +110,6 @@ export class Trie {
 		}
 		
 		return _remove(this.root, word)
-	}
-	
-	remove(word: string): boolean {
-		let nodes: TrieNode[] = this.getNodes(word)
-		if (!nodes) {
-			return false
-		}
-		
-		nodes.reverse()
-		nodes[0].isEndOfWord = false
-		nodes.some((node, index) => {
-			if (node.isEndOfWord) {
-				return true
-			}
-			
-			if (node.isLeaf()) {
-				nodes[index - 1].removeChild(node.value)
-			}
-		})
-		
-		return true
 	}
 	
 	private getNodes(word: string): TrieNode[] | null {

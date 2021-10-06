@@ -67,6 +67,19 @@ export class Trie {
 		return _contains(this.root, word)
 	}
 	
+	
+	getLongestCommonPrefix(): string {
+		let lcp = ""
+		let current = this.root
+		
+		while (current.childrenNum() === 1 && !current.isEndOfWord) {
+			current = current.getChildren()[0]
+			lcp += current.value
+		}
+		
+		return lcp
+	}
+	
 	traverse(method: "pre-order" | "post-order", callback: TraverseCallback<string>) {
 		const _preOrder = (node: TrieNode, callback) => {
 			callback(node.value)

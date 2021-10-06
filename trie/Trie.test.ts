@@ -105,4 +105,30 @@ describe("Trie", () => {
 		expect(trie.autocomplete("care")).toEqual(["care", "careful"])
 		expect(trie.autocomplete("cart")).toEqual([])
 	})
+	test("getLongestCommonPrefix", () => {
+		let trie = new Trie()
+		
+		expect(trie.getLongestCommonPrefix()).toBe("")
+		
+		trie.insert("a")
+		expect(trie.getLongestCommonPrefix()).toBe("a")
+		
+		trie.remove("a")
+		
+		trie.insert("car")
+		trie.insert("care")
+		trie.insert("caret")
+		expect(trie.getLongestCommonPrefix()).toBe("car")
+		
+		trie.insert("cut")
+		expect(trie.getLongestCommonPrefix()).toBe("c")
+		
+		trie.insert("dog")
+		expect(trie.getLongestCommonPrefix()).toBe("")
+		
+		trie.remove("dog")
+		trie.remove("cut")
+		trie.insert("care")
+		expect(trie.getLongestCommonPrefix()).toBe("car")
+	})
 })

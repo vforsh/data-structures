@@ -17,6 +17,22 @@ describe("Trie", () => {
 		expect(trie.contains("")).toBe(true)
 	})
 	
+	test("containsWithRecursion", () => {
+		let trie = new Trie()
+		trie.insert("canada")
+		trie.insert("dog")
+		expect(trie.containsWithRecursion("test")).toBe(false)
+		expect(trie.containsWithRecursion("canada")).toBe(true)
+		expect(trie.containsWithRecursion("dog")).toBe(true)
+		expect(trie.containsWithRecursion("can")).toBe(false)
+		expect(trie.containsWithRecursion("canad")).toBe(false)
+		
+		trie.insert("can")
+		expect(trie.containsWithRecursion("can")).toBe(true)
+		
+		expect(trie.containsWithRecursion("")).toBe(true)
+	})
+	
 	test("traverse", () => {
 		let word = "canada"
 		let trie = new Trie()

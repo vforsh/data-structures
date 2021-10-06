@@ -45,6 +45,28 @@ export class Trie {
 		return current.isEndOfWord
 	}
 	
+	containsWithRecursion(word: string): boolean {
+		if (word === "") {
+			return true
+		}
+		
+		const _contains = (node: TrieNode, word: string, index = 0): boolean => {
+			if (index === word.length) {
+				return node.isEndOfWord
+			}
+			
+			let char = word[index]
+			let child = node.getChild(char)
+			if (!child) {
+				return false
+			}
+			
+			return _contains(child, word, index + 1)
+		}
+		
+		return _contains(this.root, word)
+	}
+	
 	traverse(method: "pre-order" | "post-order", callback: TraverseCallback<string>) {
 		const _preOrder = (node: TrieNode, callback) => {
 			callback(node.value)

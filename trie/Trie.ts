@@ -67,6 +67,21 @@ export class Trie {
 		return _contains(this.root, word)
 	}
 	
+	getWordsNum(): number {
+		let wordsNum = 0
+		
+		const _count = (node: TrieNode) => {
+			if (node.isEndOfWord) {
+				wordsNum++
+			}
+			
+			node.getChildren().forEach(child => _count(child))
+		}
+		
+		_count(this.root)
+		
+		return wordsNum
+	}
 	
 	getLongestCommonPrefix(): string {
 		let lcp = ""

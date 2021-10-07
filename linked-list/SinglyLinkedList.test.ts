@@ -196,16 +196,16 @@ describe("SinglyLinkedList", () => {
 	test("toString", () => {
 		let list = new SinglyLinkedList()
 		
-		expect(list.toString()).toBe("empty")
+		expect(list.toString()).toBe("List()")
 		
 		list.addLast(1)
 		list.addLast(2)
 		list.addLast(3)
-		expect(list.toString()).toBe("1 -> 2 -> 3")
+		expect(list.toString()).toBe("List(1 -> 2 -> 3)")
 		
 		list.deleteLast()
 		list.deleteLast()
-		expect(list.toString()).toBe("1")
+		expect(list.toString()).toBe("List(1)")
 	})
 	
 })

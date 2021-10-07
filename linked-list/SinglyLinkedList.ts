@@ -268,11 +268,7 @@ export class SinglyLinkedList<T = number> {
 			str = str.slice(0, -4)
 		}
 		
-		if (str.length === 0) {
-			str = "empty"
-		}
-		
-		return str
+		return `List(${str})`
 	}
 	
 }

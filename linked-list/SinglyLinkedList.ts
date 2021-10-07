@@ -4,7 +4,7 @@ class Node<T = number> {
 	}
 }
 
-export class SinlgyLinkedList<T = number> {
+export class SinglyLinkedList<T = number> {
 	
 	first: Node<T>
 	last: Node<T>

@@ -1,9 +1,9 @@
-import { SinlgyLinkedList } from "./SinlgyLinkedList"
+import { SinglyLinkedList } from "./SinglyLinkedList"
 import { expect } from "@jest/globals"
 
-describe("SinlgyLinkedList", () => {
+describe("SinglyLinkedList", () => {
 	test("addFirst", () => {
-		let list = new SinlgyLinkedList()
+		let list = new SinglyLinkedList()
 		
 		expect(list.toArray()).toEqual([])
 		
@@ -14,7 +14,7 @@ describe("SinlgyLinkedList", () => {
 	})
 	
 	test("addLast", () => {
-		let list = new SinlgyLinkedList()
+		let list = new SinglyLinkedList()
 		
 		list.addLast(1)
 		list.addLast(2)
@@ -28,7 +28,7 @@ describe("SinlgyLinkedList", () => {
 	})
 	
 	test("deleteFirst", () => {
-		let list = new SinlgyLinkedList(1, 2, 3)
+		let list = new SinglyLinkedList(1, 2, 3)
 		
 		expect(list.toArray()).toEqual([1, 2, 3])
 		
@@ -44,7 +44,7 @@ describe("SinlgyLinkedList", () => {
 	})
 	
 	test("deleteLast", () => {
-		let list = new SinlgyLinkedList(1, 2, 3)
+		let list = new SinglyLinkedList(1, 2, 3)
 		
 		expect(list.toArray()).toEqual([1, 2, 3])
 		
@@ -60,7 +60,7 @@ describe("SinlgyLinkedList", () => {
 	})
 	
 	test("contains", () => {
-		let list = new SinlgyLinkedList()
+		let list = new SinglyLinkedList()
 		
 		expect(list.contains(10)).toBe(false)
 		
@@ -76,11 +76,11 @@ describe("SinlgyLinkedList", () => {
 	})
 	
 	test("indexOf", () => {
-		let emptyList = new SinlgyLinkedList()
+		let emptyList = new SinglyLinkedList()
 		
 		expect(emptyList.indexOf(1)).toBe(-1)
 		
-		let list = new SinlgyLinkedList(1, 2, 3, 4, 5)
+		let list = new SinglyLinkedList(1, 2, 3, 4, 5)
 		
 		expect(list.indexOf(1)).toBe(0)
 		expect(list.indexOf(2)).toBe(1)
@@ -89,7 +89,7 @@ describe("SinlgyLinkedList", () => {
 	})
 	
 	test("size", () => {
-		let list = new SinlgyLinkedList(1, 2, 3, 4, 5)
+		let list = new SinglyLinkedList(1, 2, 3, 4, 5)
 		
 		expect(list.size()).toBe(5)
 		
@@ -107,7 +107,7 @@ describe("SinlgyLinkedList", () => {
 	})
 	
 	test("reverse", () => {
-		let list = new SinlgyLinkedList(1, 2, 3, 4, 5)
+		let list = new SinglyLinkedList(1, 2, 3, 4, 5)
 		
 		list.reverse()
 		expect(list.toArray()).toEqual([5, 4, 3, 2, 1])
@@ -132,7 +132,7 @@ describe("SinlgyLinkedList", () => {
 	})
 	
 	test("reverseWithRecursion", () => {
-		let list = new SinlgyLinkedList(1, 2, 3, 4, 5)
+		let list = new SinglyLinkedList(1, 2, 3, 4, 5)
 		
 		list.reverseWithRecursion()
 		expect(list.toArray()).toEqual([5, 4, 3, 2, 1])
@@ -157,7 +157,7 @@ describe("SinlgyLinkedList", () => {
 	})
 	
 	test("kthValueFromEnd", () => {
-		let list = new SinlgyLinkedList(1, 2, 3, 4, 5)
+		let list = new SinglyLinkedList(1, 2, 3, 4, 5)
 		
 		expect(list.kthValueFromEnd(1)).toBe(5)
 		expect(list.kthValueFromEnd(2)).toBe(4)
@@ -166,7 +166,7 @@ describe("SinlgyLinkedList", () => {
 	})
 	
 	test("kthValueFromEnd_2", () => {
-		let list = new SinlgyLinkedList(1, 2, 3, 4, 5)
+		let list = new SinglyLinkedList(1, 2, 3, 4, 5)
 		
 		expect(list.kthValueFromEnd_2(1)).toBe(5)
 		expect(list.kthValueFromEnd_2(2)).toBe(4)
@@ -175,7 +175,7 @@ describe("SinlgyLinkedList", () => {
 	})
 	
 	test("getMiddle", () => {
-		let list = new SinlgyLinkedList()
+		let list = new SinglyLinkedList()
 		
 		expect(list.getMiddle()).toEqual([])
 		
@@ -194,7 +194,7 @@ describe("SinlgyLinkedList", () => {
 	})
 	
 	test("toString", () => {
-		let list = new SinlgyLinkedList()
+		let list = new SinglyLinkedList()
 		
 		expect(list.toString()).toBe("empty")
 		

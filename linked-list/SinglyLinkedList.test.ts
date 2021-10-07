@@ -47,35 +47,35 @@ describe("SinglyLinkedList", () => {
 		expect(list.toArray()).toEqual([])
 	})
 	
-	test("deleteFirst", () => {
+	test("removeFirst", () => {
 		let list = new SinglyLinkedList(1, 2, 3)
 		
 		expect(list.toArray()).toEqual([1, 2, 3])
 		
-		list.deleteFirst()
+		list.removeFirst()
 		expect(list.toArray()).toEqual([2, 3])
 		
-		list.deleteFirst()
-		list.deleteFirst()
+		list.removeFirst()
+		list.removeFirst()
 		expect(list.toArray()).toEqual([])
 		
-		list.deleteFirst()
+		list.removeFirst()
 		expect(list.toArray()).toEqual([])
 	})
 	
-	test("deleteLast", () => {
+	test("removeLast", () => {
 		let list = new SinglyLinkedList(1, 2, 3)
 		
 		expect(list.toArray()).toEqual([1, 2, 3])
 		
-		list.deleteLast()
+		list.removeLast()
 		expect(list.toArray()).toEqual([1, 2])
 		
-		list.deleteLast()
-		list.deleteLast()
+		list.removeLast()
+		list.removeLast()
 		expect(list.toArray()).toEqual([])
 		
-		list.deleteLast()
+		list.removeLast()
 		expect(list.toArray()).toEqual([])
 	})
 	
@@ -113,16 +113,16 @@ describe("SinglyLinkedList", () => {
 		
 		expect(list.size()).toBe(5)
 		
-		list.deleteLast()
-		list.deleteLast()
+		list.removeLast()
+		list.removeLast()
 		expect(list.size()).toBe(3)
 		
-		list.deleteLast()
-		list.deleteLast()
-		list.deleteLast()
+		list.removeLast()
+		list.removeLast()
+		list.removeLast()
 		expect(list.size()).toBe(0)
 		
-		list.deleteLast()
+		list.removeLast()
 		expect(list.size()).toBe(0)
 	})
 	
@@ -135,18 +135,18 @@ describe("SinglyLinkedList", () => {
 		list.reverse()
 		expect(list.toArray()).toEqual([1, 2, 3, 4, 5])
 		
-		list.deleteLast()
-		list.deleteLast()
-		list.deleteLast()
-		list.deleteLast()
+		list.removeLast()
+		list.removeLast()
+		list.removeLast()
+		list.removeLast()
 		expect(list.toArray()).toEqual([1])
 		
 		list.addLast(2)
 		list.reverse()
 		expect(list.toArray()).toEqual([2, 1])
 		
-		list.deleteLast()
-		list.deleteLast()
+		list.removeLast()
+		list.removeLast()
 		list.reverse()
 		expect(list.toArray()).toEqual([])
 	})
@@ -160,18 +160,18 @@ describe("SinglyLinkedList", () => {
 		list.reverseWithRecursion()
 		expect(list.toArray()).toEqual([1, 2, 3, 4, 5])
 		
-		list.deleteLast()
-		list.deleteLast()
-		list.deleteLast()
-		list.deleteLast()
+		list.removeLast()
+		list.removeLast()
+		list.removeLast()
+		list.removeLast()
 		expect(list.toArray()).toEqual([1])
 		
 		list.addLast(2)
 		list.reverseWithRecursion()
 		expect(list.toArray()).toEqual([2, 1])
 		
-		list.deleteLast()
-		list.deleteLast()
+		list.removeLast()
+		list.removeLast()
 		list.reverseWithRecursion()
 		expect(list.toArray()).toEqual([])
 	})
@@ -223,8 +223,8 @@ describe("SinglyLinkedList", () => {
 		list.addLast(3)
 		expect(list.toString()).toBe("List(1 -> 2 -> 3)")
 		
-		list.deleteLast()
-		list.deleteLast()
+		list.removeLast()
+		list.removeLast()
 		expect(list.toString()).toBe("List(1)")
 	})
 	

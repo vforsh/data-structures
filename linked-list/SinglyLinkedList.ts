@@ -84,7 +84,7 @@ export class SinglyLinkedList<T = number> {
 		return false
 	}
 	
-	deleteFirst() {
+	removeFirst() {
 		if (this.size() <= 1) {
 			this.first = null
 			this.last = null
@@ -99,7 +99,7 @@ export class SinglyLinkedList<T = number> {
 		this._size--
 	}
 	
-	deleteLast() {
+	removeLast() {
 		if (this.size() <= 1) {
 			this.first = null
 			this.last = null

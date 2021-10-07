@@ -1,3 +1,5 @@
+import { TraverseCallback } from "../binary-trees/common"
+
 class Node<T = number> {
 	
 	constructor(public value: T, public next?: Node<T>) {
@@ -273,6 +275,44 @@ export class SinglyLinkedList<T = number> {
 			currentIndex++
 			current = current.next
 		}
+	}
+	
+	traverse(callback: TraverseCallback<T>) {
+		let current = this.first
+		while (current) {
+			callback(current.value)
+			current = current.next
+		}
+	}
+	
+	truncate(newSize: number) {
+		if (newSize < 0 || newSize >= this._size) {
+			return
+		}
+		
+		if (newSize === 0) {
+			this.clear()
+			return
+		}
+		
+		let index = 0
+		let current = this.first
+		while (current) {
+			if (index === newSize - 1) {
+				current.next = null
+				this.last = current
+				this._size = newSize
+				return
+			}
+			
+			index++
+			current = current.next
+		}
+	}
+	
+	clear() {
+		this.first = this.last = null
+		this._size = 0
 	}
 	
 	toArray(): T[] {

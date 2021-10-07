@@ -194,6 +194,47 @@ describe("SinglyLinkedList", () => {
 		expect(list.kthValueFromEnd_2(10)).toBe(undefined)
 	})
 	
+	test("clear", () => {
+		let list = new SinglyLinkedList(1, 2, 3, 4, 5)
+		
+		expect(list.size()).toBe(5)
+		
+		list.clear()
+		
+		expect(list.size()).toBe(0)
+	})
+	
+	test("truncate", () => {
+		let list = new SinglyLinkedList(1, 2, 3, 4, 5)
+		
+		expect(list.toArray()).toEqual([1, 2, 3, 4, 5])
+		
+		list.truncate(4)
+		expect(list.toArray()).toEqual([1, 2, 3, 4])
+		
+		list.truncate(4)
+		expect(list.toArray()).toEqual([1, 2, 3, 4])
+		
+		list.truncate(1)
+		expect(list.toArray()).toEqual([1])
+		
+		list.truncate(0)
+		expect(list.toArray()).toEqual([])
+	})
+	
+	test("traverse", () => {
+		let list = new SinglyLinkedList(1, 2, 3, 4, 5)
+		
+		let counter_1 = 0
+		list.traverse(() => counter_1++)
+		expect(counter_1).toBe(5)
+		
+		let counter_2 = 0
+		list.clear()
+		list.traverse(() => counter_2++)
+		expect(counter_2).toBe(0)
+	})
+	
 	test("getMiddle", () => {
 		let list = new SinglyLinkedList()
 		

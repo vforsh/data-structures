@@ -27,6 +27,26 @@ describe("SinglyLinkedList", () => {
 		expect(list.toArray()).toEqual([1, 2, 3, 3, 2, 1])
 	})
 	
+	test("remove", () => {
+		let list = new SinglyLinkedList(1, 2, 3, 4, 5)
+		
+		expect(list.remove(6)).toBe(false)
+		
+		list.remove(1)
+		list.remove(2)
+		expect(list.toArray()).toEqual([3, 4, 5])
+		
+		list.remove(5)
+		expect(list.toArray()).toEqual([3, 4])
+		
+		list.remove(3)
+		list.remove(4)
+		expect(list.toArray()).toEqual([])
+		
+		list.remove(5)
+		expect(list.toArray()).toEqual([])
+	})
+	
 	test("deleteFirst", () => {
 		let list = new SinglyLinkedList(1, 2, 3)
 		

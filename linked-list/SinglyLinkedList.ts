@@ -52,6 +52,38 @@ export class SinglyLinkedList<T = number> {
 		return this._size
 	}
 	
+	remove(value: T): boolean {
+		if (this.isEmpty()) {
+			return false
+		}
+		
+		let previous
+		let current = this.first
+		while (current) {
+			if (current.value === value) {
+				if (previous) {
+					previous.next = current.next
+				}
+				
+				if (current === this.first) {
+					this.first = current.next
+				}
+				
+				if (current === this.last) {
+					this.last = previous
+				}
+				
+				current.next = null
+				return true
+			}
+			
+			previous = current
+			current = current.next
+		}
+		
+		return false
+	}
+	
 	deleteFirst() {
 		if (this.size() <= 1) {
 			this.first = null
@@ -270,5 +302,4 @@ export class SinglyLinkedList<T = number> {
 		
 		return `List(${str})`
 	}
-	
 }

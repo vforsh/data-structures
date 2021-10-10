@@ -1,5 +1,3 @@
-import { randomInt } from "crypto"
-
 export function bubbleSort(array: number[]): number[] {
 	for (let i = 0; i < array.length; i++) {
 		let isSorted = true
@@ -106,6 +104,59 @@ export function quickSort(array: number[]): number[] {
 	return _sort(array, 0, pivotIndex)
 }
 
+export function countingSort(array: number[]): number[] {
+	let counts = []
+	
+	array.forEach((value) => {
+		counts[value] = (counts[value] ?? 0) + 1
+	})
+	
+	let insertIndex = 0
+	counts.forEach((count, value) => {
+		while (count-- > 0) {
+			array[insertIndex++] = value
+		}
+	})
+	
+	return array
+}
+
+export function bucketSort(array: number[]): number[] {
+	let { min, max } = getMinMax(array)
+	let bucketSize = 5
+	let bucketsNum = Math.floor((max - min) / bucketSize) + 1
+	let buckets = Array.from({ length: bucketsNum }, () => [])
+	
+	array.forEach((value) => {
+		let bucketIndex = Math.floor((value - min) / bucketSize)
+		buckets[bucketIndex].push(value)
+	})
+	
+	let insertIndex = 0
+	buckets.forEach(bucket => {
+		mergeSort(bucket).forEach(value => array[insertIndex++] = value)
+	})
+	
+	return array
+}
+
+// TODO add radix sort
+
+function getMinMax(array: number[]): { min: number, max: number } {
+	let min = array[0]
+	let max = array[0]
+	
+	array.forEach((value) => {
+		if (value < min) {
+			min = value
+		} else if (value > max) {
+			max = value
+		}
+	})
+	
+	return { min, max }
+}
+
 function partition(array: number[], left: number, right: number): number {
 	let b = left - 1
 	let pivot = array[right]
@@ -119,7 +170,6 @@ function partition(array: number[], left: number, right: number): number {
 	
 	return b
 }
-
 
 function swap(array: number[], index_1: number, index_2: number) {
 	let temp = array[index_1]
